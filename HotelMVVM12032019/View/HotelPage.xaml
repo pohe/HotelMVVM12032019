@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="HotelMVVM12032019.View.HotelPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HotelMVVM12032019.View"
+    xmlns:local2="using:HotelMVVM12032019.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:HotelMVVM12032019.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Page.DataContext>
+        <local2:HotelViewModel></local2:HotelViewModel>
+</Page.DataContext>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
+            <!--PLads til ListView-->
+            <ListView ItemsSource="{Binding HotelCatalogSingleton.Hotels}"  ></ListView>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <!--Plads til CRUD Hotel-->
+        </StackPanel>
+    </StackPanel>
+</Page>
