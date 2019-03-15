@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Handler\HotelHandler.cs" />
     <Compile Include="Model\HotelCatalogSingleton.cs" />
     <Compile Include="Persistency\PersistenceFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,10 +165,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Handler\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Reference Include="PortableHotel">
       <HintPath>..\..\PortableHotel\PortableHotel\PortableHotel\bin\Debug\PortableHotel.dll</HintPath>

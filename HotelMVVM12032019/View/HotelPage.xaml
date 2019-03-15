@@ -9,7 +9,19 @@
     xmlns:viewModel="using:HotelMVVM12032019.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-<Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Margin" Value="5,5,5,5"/>
+        </Style>
+    </Page.Resources>
+    <Page.DataContext>
         <local2:HotelViewModel></local2:HotelViewModel>
 </Page.DataContext>
     <StackPanel Orientation="Horizontal">
@@ -19,6 +31,28 @@
         </StackPanel>
         <StackPanel Orientation="Vertical">
             <!--Plads til CRUD Hotel-->
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockStyle}" Text="Hotel no" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="172"/>
+                    <TextBox HorizontalAlignment="Left"   Text="{Binding NewHotel.HotelNr, Mode=TwoWay}" VerticalAlignment="Top" Width="343" Style="{StaticResource TextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left"  Style="{StaticResource TextBlockStyle}" Text="Navn" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="172"/>
+                    <TextBox HorizontalAlignment="Left"    Text="{Binding NewHotel.Navn, Mode=TwoWay}" VerticalAlignment="Top" Width="343" Style="{StaticResource TextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Left"  Style="{StaticResource TextBlockStyle}" Text="Adresse" TextWrapping="Wrap" VerticalAlignment="Top" Height="33" Width="179"/>
+                    <TextBox HorizontalAlignment="Left"   Text="{Binding NewHotel.Adresse, Mode=TwoWay}" VerticalAlignment="Top" Width="343" Style="{StaticResource TextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" >
+                    <Button Content="Create" Command="{Binding CreateHotelCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                    <!--<Button Content="Update" Command="{Binding UpdateHotelCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Button Content="Delete" Command="{Binding DeleteHotelCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Button Content="Clear" Command="{Binding ClearHotelCommand}" HorizontalAlignment="Left"  VerticalAlignment="Top"/>-->
+
+                </StackPanel>
+
+            </StackPanel>
         </StackPanel>
     </StackPanel>
 </Page>

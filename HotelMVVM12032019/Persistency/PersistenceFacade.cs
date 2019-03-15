@@ -25,5 +25,33 @@ namespace HotelMVVM12032019.Persistency
             return hoteller;
         }
 
+
+        public bool Post(Hotel hotel)
+        {
+            bool ok = true;
+
+            using (HttpClient client = new HttpClient())
+            {
+                String jsonStr = JsonConvert.SerializeObject(hotel);
+                StringContent content = new StringContent(jsonStr, Encoding.ASCII, "application/json");
+
+                Task<HttpResponseMessage> postAsync = client.PostAsync(URI, content);
+
+                HttpResponseMessage resp = postAsync.Result;
+                if (resp.IsSuccessStatusCode)
+                {
+                    String jsonResStr = resp.Content.ReadAsStringAsync().Result;
+                    ok = JsonConvert.DeserializeObject<bool>(jsonResStr);
+                }
+                else
+                {
+                    ok = false;
+                }
+            }
+
+ 
+            return ok;
+        }
+
     }
 }

@@ -30,7 +30,7 @@ namespace HotelMVVM12032019.Model
         {
             Hotels = new ObservableCollection<Hotel>(new PersistenceFacade().GetAll());
             //Hotels = new ObservableCollection<Hotel>();
-            //Hotels.Add(new Hotel(12,"Peters hytte", "Sorøvej 123"));
+            //Hotels.Add(new Hotel(12, "Peters hytte", "Sorøvej 123"));
             //Hotels.Add(new Hotel(13, "Sofus's Badehotel", "Søvej 321"));
         }
 
