@@ -27,7 +27,7 @@
     <StackPanel Orientation="Horizontal">
         <StackPanel Orientation="Vertical">
             <!--PLads til ListView-->
-            <ListView ItemsSource="{Binding HotelCatalogSingleton.Hotels}"  ></ListView>
+            <ListView ItemsSource="{Binding HotelCatalogSingleton.Hotels}"  Width="300"></ListView>
         </StackPanel>
         <StackPanel Orientation="Vertical">
             <!--Plads til CRUD Hotel-->

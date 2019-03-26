@@ -19,21 +19,20 @@ namespace HotelMVVM12032019.Handler
         }
 
 
-        public  void CreateHotel()
+        public async void CreateHotel()
         {
             int hotelNr = HotelViewModel.NewHotel.HotelNr;
             string hotelName = HotelViewModel.NewHotel.Navn;
             string hotelAddress = HotelViewModel.NewHotel.Adresse;
             Hotel aHotel = new Hotel(hotelNr, hotelName, hotelAddress);
             new PersistenceFacade().Post(aHotel);
-            
-            var hotels = new PersistenceFacade().GetAll();
+
+            var hotels = await new PersistenceFacade().GetAllAsync();
             HotelViewModel.HotelCatalogSingleton.Hotels.Clear();
             foreach (var h in hotels)
             {
                 HotelViewModel.HotelCatalogSingleton.Hotels.Add(h);
             }
-
 
         }
 

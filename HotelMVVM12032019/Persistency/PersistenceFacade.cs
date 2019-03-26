@@ -13,12 +13,13 @@ namespace HotelMVVM12032019.Persistency
     {
         private const string URI = "http://localhost:55075/api/hotels";
 
-        public List<Hotel> GetAll()
+        public async Task<List<Hotel>> GetAllAsync()
         {
             List<Hotel> hoteller = new List<Hotel>();
             using (HttpClient client = new HttpClient())
             {
-                Task<string> resTask = client.GetStringAsync(URI);
+                Task<string> resTask =  client.GetStringAsync(URI);
+                await resTask;
                 String jsonStr = resTask.Result;
                 hoteller = JsonConvert.DeserializeObject<List<Hotel>>(jsonStr);
             }

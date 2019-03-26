@@ -28,11 +28,21 @@ namespace HotelMVVM12032019.Model
 
         private HotelCatalogSingleton()
         {
-            Hotels = new ObservableCollection<Hotel>(new PersistenceFacade().GetAll());
-            //Hotels = new ObservableCollection<Hotel>();
+            Hotels = new ObservableCollection<Hotel>();
+            LoadHotelsAsync();
+            
             //Hotels.Add(new Hotel(12, "Peters hytte", "Sorøvej 123"));
             //Hotels.Add(new Hotel(13, "Sofus's Badehotel", "Søvej 321"));
         }
 
+        private async void LoadHotelsAsync()
+        {
+            List<Hotel> hotels= await new PersistenceFacade().GetAllAsync();
+            foreach (Hotel h in hotels)
+            {
+                Hotels.Add(h);
+            }
+            //Hotels = new ObservableCollection<Hotel>(hotels);
+        }
     }
 }
